@@ -9,18 +9,20 @@ public class MyFirstProgram {
   public static void getDistance() {
     Point p1 = new Point(1, 2);
     Point p2 = new Point(3, 4);
-    System.out.println("D: " + distance(p1, p2));
+    System.out.println("D1: " + distance(p1, p2));
+    System.out.println("D2: " + p1.distance(p2));
+    System.out.println("D3: " + p2.distance(p1));
   }
 
   public static double distance(Point p1, Point p2) {
     double difX = p2.x - p1.x;
     double difY = p2.y - p1.y;
-    return Math.sqrt(pwr(difX) + (pwr(difY)));
+    double pow = 2;
+
+    return Math.sqrt(Math.pow(difX, pow) + (Math.pow(difY, pow)));
   }
 
-  public static double pwr(double a) {
-    return a * a;
-  }
+
 
   public static void exp() {
     hello("Lesha");

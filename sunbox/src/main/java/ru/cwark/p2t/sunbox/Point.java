@@ -9,5 +9,13 @@ public class Point {
     this.y = y;
   }
 
+  public double distance (Point p){
+    double difX = p.x - this.x;
+    double difY = p.y - this.y;
+    double pow = 2;
+
+    return Math.sqrt(Math.pow(difX, pow) + (Math.pow(difY, pow)));
+  }
+
 
 }
