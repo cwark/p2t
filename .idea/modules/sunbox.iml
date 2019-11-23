@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$/../../sunbox">
       <excludeFolder url="file://$MODULE_DIR$/../../sunbox/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/../../sunbox/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../sunbox/out" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
