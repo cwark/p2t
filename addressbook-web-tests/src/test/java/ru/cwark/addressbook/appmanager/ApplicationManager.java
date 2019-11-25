@@ -19,6 +19,7 @@ public class ApplicationManager {
     wd = new ChromeDriver();
     wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook/");
+
     groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);
     sessionHelper = new SessionHelper(wd);
@@ -26,12 +27,8 @@ public class ApplicationManager {
   }
 
   public void stop() {
-    logout();
+    sessionHelper.logout();
     wd.quit();
-  }
-
-  public void logout() {
-    wd.findElement(By.linkText("Logout")).click();
   }
 
   public GroupHelper getGroupHelper() {
