@@ -1,53 +1,46 @@
 package ru.cwark.addressbook.appmanager;
 
+import com.sun.javafx.binding.ExpressionHelperBase;
 import org.jetbrains.annotations.Contract;
 import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import ru.cwark.addressbook.model.GroupData;
 
-public class GroupHelper {
+public class GroupHelper extends HelperBase {
   public static final String GROUP_NAME = "group_name";
   public static final String GROUP_HEADER = "group_header";
   public static final String GROUP_FOOTER = "group_footer";
-  private WebDriver wd;
 
   @Contract(pure = true)
   public GroupHelper(WebDriver wd) {
-    this.wd = wd;
+    super(wd);
   }
 
 
   public void returnGroupPage() {
-    wd.findElement(By.linkText("group page")).click();
+    click(By.linkText("group page"));
   }
 
   public void submitGroupCreation() {
-    wd.findElement(By.name("submit")).click();
+    click(By.name("submit"));
   }
 
   public void fillGroupForm(@NotNull GroupData groupData) {
-    wd.findElement(By.name(GROUP_NAME)).click();
-    wd.findElement(By.name(GROUP_NAME)).clear();
-    wd.findElement(By.name(GROUP_NAME)).sendKeys(groupData.getName());
-    wd.findElement(By.name(GROUP_HEADER)).click();
-    wd.findElement(By.name(GROUP_HEADER)).clear();
-    wd.findElement(By.name(GROUP_HEADER)).sendKeys(groupData.getHeader());
-    wd.findElement(By.name(GROUP_FOOTER)).click();
-    wd.findElement(By.name(GROUP_FOOTER)).clear();
-    wd.findElement(By.name(GROUP_FOOTER)).sendKeys(groupData.getFooter());
+    type(By.name(GROUP_NAME), groupData.getName());
+    type(By.name(GROUP_HEADER), groupData.getHeader());
+    type(By.name(GROUP_FOOTER), groupData.getFooter());
   }
 
   public void initGroupCreation() {
-    wd.findElement(By.name("new")).click();
+    click(By.name("new"));
   }
 
   public void deleteSelectedGroups() {
-    wd.findElement(By.name("delete")).click();
+    click(By.name("delete"));
   }
 
   public void selectGroup() {
-    wd.findElement(By.name("selected[]")).click();
+    click(By.name("selected[]"));
   }
 }
