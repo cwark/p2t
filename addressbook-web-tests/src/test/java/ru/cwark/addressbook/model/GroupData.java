@@ -1,4 +1,4 @@
-package ru.cwark.addressbook;
+package ru.cwark.addressbook.model;
 
 public class GroupData {
   private final String name;

@@ -1,7 +1,8 @@
-package ru.cwark.addressbook;
+package ru.cwark.addressbook.tests;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import ru.cwark.addressbook.appmanager.ApplicationManager;
 
 public class TestBase {
 

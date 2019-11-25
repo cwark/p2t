@@ -1,6 +1,7 @@
-package ru.cwark.addressbook;
+package ru.cwark.addressbook.tests;
 
 import org.testng.annotations.Test;
+import ru.cwark.addressbook.model.GroupData;
 
 public class GroupCreationTests extends TestBase {
 

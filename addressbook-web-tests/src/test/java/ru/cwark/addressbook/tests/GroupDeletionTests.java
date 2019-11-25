@@ -1,8 +1,8 @@
-package ru.cwark.addressbook;
+package ru.cwark.addressbook.tests;
 
 import org.testng.annotations.Test;
 
-public class GroupDeletionTests extends TestBase{
+public class GroupDeletionTests extends TestBase {
 
   @Test
   public void testGroupDeletion() throws Exception {
