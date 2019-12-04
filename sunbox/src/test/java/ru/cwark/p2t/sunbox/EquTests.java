@@ -25,4 +25,25 @@ public class EquTests {
 
     Assert.assertEquals(e.getRootNumber(), 2);
   }
+
+  @Test
+  public void testZeroA(){
+    Equation e = new Equation(0,5,3);
+
+    Assert.assertEquals(e.getRootNumber(), 1);
+  }
+
+  @Test
+  public void testZeroAB(){
+    Equation e = new Equation(0,0,3);
+
+    Assert.assertEquals(e.getRootNumber(), 0);
+  }
+
+  @Test
+  public void testZeroABC(){
+    Equation e = new Equation(0,0,0);
+
+    Assert.assertEquals(e.getRootNumber(), -1);
+  }
 }

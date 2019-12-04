@@ -1,8 +1,6 @@
 package ru.cwark.addressbook.appmanager;
 
 import com.sun.javafx.binding.ExpressionHelperBase;
-import org.jetbrains.annotations.Contract;
-import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import ru.cwark.addressbook.model.GroupData;
@@ -12,7 +10,6 @@ public class GroupHelper extends HelperBase {
   public static final String GROUP_HEADER = "group_header";
   public static final String GROUP_FOOTER = "group_footer";
 
-  @Contract(pure = true)
   public GroupHelper(WebDriver wd) {
     super(wd);
   }
@@ -26,7 +23,7 @@ public class GroupHelper extends HelperBase {
     click(By.name("submit"));
   }
 
-  public void fillGroupForm(@NotNull GroupData groupData) {
+  public void fillGroupForm(GroupData groupData) {
     type(By.name(GROUP_NAME), groupData.getName());
     type(By.name(GROUP_HEADER), groupData.getHeader());
     type(By.name(GROUP_FOOTER), groupData.getFooter());
