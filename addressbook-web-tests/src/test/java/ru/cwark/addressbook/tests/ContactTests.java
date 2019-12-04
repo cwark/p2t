@@ -8,7 +8,7 @@ public class ContactTests extends TestBase {
   @Test()
   public void testCreationContact() {
     app.getContactHelper().initContactCreation();
-    app.getContactHelper().fillContactForm(new ContactData("OneTest", "Testsovich", "Testov", "0101991"));
+    app.getContactHelper().fillContactForm(new ContactData("OneTest", "Testsovich", "Testov1", "0101991", "group2"), true);
     app.getContactHelper().submitContactCreation();
     app.getContactHelper().returnHomePage();
   }
@@ -24,7 +24,7 @@ public class ContactTests extends TestBase {
   @Test
   public void testModificationContact() {
     app.getContactHelper().initContactModification();
-    app.getContactHelper().fillContactForm(new ContactData("TwoTest", "TestsovichTwo", "EditTestov", "9188367"));
+    app.getContactHelper().fillContactForm(new ContactData("TwoTest", "TestsovichTwo", "EditTestov", "9188367", "group3"), false);
     app.getContactHelper().submitContactModification();
     app.getContactHelper().returnHomePage();
   }

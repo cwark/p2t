@@ -1,8 +1,13 @@
 package ru.cwark.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.cwark.addressbook.model.ContactData;
+
+import java.util.concurrent.TimeUnit;
 
 public class ContactHelper extends HelperBase {
   public ContactHelper(WebDriver wd) {
@@ -13,11 +18,18 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("add new"));
   }
 
-  public void fillContactForm(ContactData contactData) {
+  public void fillContactForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getfName());
     type(By.name("middlename"), contactData.getmName());
     type(By.name("lastname"), contactData.getLastName());
     type(By.name("home"), contactData.getPhHome());
+    if (creation){
+      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+    }else{
+      wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+      Assert.assertFalse(isElementPresent(By.name("new_group")));
+      wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    }
   }
 
   public void submitContactCreation() {

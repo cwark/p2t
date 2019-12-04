@@ -2,7 +2,10 @@ package ru.cwark.addressbook.appmanager;
 
 import com.sun.javafx.binding.ExpressionHelperBase;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import ru.cwark.addressbook.model.GroupData;
 
 public class GroupHelper extends HelperBase {
@@ -27,7 +30,11 @@ public class GroupHelper extends HelperBase {
     type(By.name(GROUP_NAME), groupData.getName());
     type(By.name(GROUP_HEADER), groupData.getHeader());
     type(By.name(GROUP_FOOTER), groupData.getFooter());
+
+
   }
+
+
 
   public void initGroupCreation() {
     click(By.name("new"));
