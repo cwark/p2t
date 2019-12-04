@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import ru.cwark.addressbook.model.GroupData;
 
+import java.util.concurrent.TimeUnit;
+
 public class GroupHelper extends HelperBase {
   public static final String GROUP_NAME = "group_name";
   public static final String GROUP_HEADER = "group_header";
@@ -57,6 +59,7 @@ public class GroupHelper extends HelperBase {
   }
 
   public void createGroup(GroupData group) {
+    System.out.println("Создаем группу");
     initGroupCreation();
     fillGroupForm(group);
     submitGroupCreation();
@@ -64,6 +67,10 @@ public class GroupHelper extends HelperBase {
   }
 
   public boolean isThereAGroup() {
-    return isElementPresent(By.name("selected[]"));
+    boolean r;
+    wd.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+    r = isElementPresent(By.name("selected[]"));
+    wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    return r;
   }
 }

@@ -59,4 +59,20 @@ public class ContactHelper extends HelperBase {
   public void submitContactModification() {
     click(By.name("update"));
   }
+
+  public void createContact(ContactData contact){
+    System.out.println("Создаем контакт");
+    initContactCreation();
+    fillContactForm(contact, true);
+    submitContactCreation();
+    returnHomePage();
+  }
+
+  public boolean isThereContact() {
+    boolean r;
+    wd.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
+    r = isElementPresent(By.name("selected[]"));
+    wd.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+    return r;
+  }
 }
